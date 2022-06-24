@@ -1,0 +1,178 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-21T20:16:37.206Z",
+    "end": "2022-06-21T20:16:59.511Z",
+    "duration": 22305,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "06c095c1-84e5-4010-b323-800582751a1e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApplaudoStudio\\BankingProject.cy.js",
+      "file": "cypress\\e2e\\ApplaudoStudio\\BankingProject.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+          "title": "Banking project",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Balance behavior, when there is a deposit",
+              "fullTitle": "Banking project Balance behavior, when there is a deposit",
+              "timedOut": null,
+              "duration": 5728,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst accountPage = new _AccountPage.default();\nconst transactionsPage = new _TransactionsPage.default(); //Login with Hermoine and Reset transactions\nhomePage.getCustomerLoginButton().click();\ncy.login('Hermoine Granger');\naccountPage.getTransactionsButton().click();\ntransactionsPage.getResetButton().click();\ntransactionsPage.getBackButton().click();\naccountPage.getBalanceLabel().should('contain', '0'); //Deposit 100\naccountPage.getDepositButton().click();\naccountPage.getDepositAmountInput().type('100');\naccountPage.getDepositSubmitButton().click(); //Balance is 100\naccountPage.getBalanceLabel().should('contain', '100');",
+              "err": {},
+              "uuid": "27fb353b-d9b9-4fd2-9187-a08ef7d023c2",
+              "parentUUID": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Balance behavior, when there is a withdraw",
+              "fullTitle": "Banking project Balance behavior, when there is a withdraw",
+              "timedOut": null,
+              "duration": 2716,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst accountPage = new _AccountPage.default();\nconst transactionsPage = new _TransactionsPage.default(); //Login with Hermoine and Reset transactions\nhomePage.getCustomerLoginButton().click();\ncy.login('Hermoine Granger');\naccountPage.getBalanceLabel().should('contain', '5096'); //Withdraw 20\naccountPage.getWithdrawlButton().click();\naccountPage.getWithdrawlAmountInput().type('20');\naccountPage.getWithdrawlSubmitButton().click(); //Balance should be 5076\naccountPage.getBalanceLabel().should('contain', '5076');",
+              "err": {},
+              "uuid": "4c650072-11c9-4aa1-b71e-2ab9de5481b5",
+              "parentUUID": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add customer and then find it",
+              "fullTitle": "Banking project Add customer and then find it",
+              "timedOut": null,
+              "duration": 3292,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst managerPage = new _ManagerPage.default(); //Const with date, so the name user doesn't repeat between users\nconst setCustomer = Date.now().toString(); //Create a customer\nhomePage.getBankManagerLoginButton().click();\nmanagerPage.getAddCustomerButton().click();\nmanagerPage.getFirstNameInput().type(setCustomer);\nmanagerPage.getLastNameInput().type(setCustomer);\nmanagerPage.getPostalCodeInput().type(setCustomer);\nmanagerPage.getCustomerSubmitButton().click(); //find customer created\nmanagerPage.getCustomersButton().click();\nmanagerPage.getFirstNameInGrid().should('contain', setCustomer);\nmanagerPage.getLastNameInGrid().should('contain', setCustomer);\nmanagerPage.getPostalCodeInGrid().should('contain', setCustomer);",
+              "err": {},
+              "uuid": "c431a413-f753-4bba-aa0a-08b3084b8c65",
+              "parentUUID": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete a customer",
+              "fullTitle": "Banking project Delete a customer",
+              "timedOut": null,
+              "duration": 1842,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst managerPage = new _ManagerPage.default(); //find a customer and delete it\nhomePage.getBankManagerLoginButton().click();\nmanagerPage.getCustomersButton().click();\nmanagerPage.getFirstNameInGrid().contains('Neville').next().next().next().next().find('button').click(); //Check the Customer was deleted\nmanagerPage.getFirstNameInGrid().should('not.contain', 'Neville');",
+              "err": {},
+              "uuid": "ab5ac254-394a-44e8-91f7-2680f14fc770",
+              "parentUUID": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add customer and open the Account",
+              "fullTitle": "Banking project Add customer and open the Account",
+              "timedOut": null,
+              "duration": 5823,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst managerPage = new _ManagerPage.default();\nconst accountPage = new _AccountPage.default(); //Create a customer\nhomePage.getBankManagerLoginButton().click();\nmanagerPage.getAddCustomerButton().click();\nmanagerPage.getFirstNameInput().type('New');\nmanagerPage.getLastNameInput().type('Customer');\nmanagerPage.getPostalCodeInput().type('1234');\nmanagerPage.getCustomerSubmitButton().click(); //Login with the user, without creating an account\nhomePage.getHomeButton().click();\nhomePage.getCustomerLoginButton().click();\ncy.login('New Customer');\naccountPage.getErrorMessageNoAccount().should('contain', 'Please open an account with us.'); //Create the account for the Customer\nhomePage.getHomeButton().click();\nhomePage.getBankManagerLoginButton().click();\nmanagerPage.getOpenAccountButton().click();\nmanagerPage.getCustomerOpenAccountSelect().select('New Customer');\nmanagerPage.getCurrencyOpenAccountSelect().select('Dollar');\nmanagerPage.getSubmitOpenAccountButton().click(); //Login again, but now with the Account created\nhomePage.getHomeButton().click();\nhomePage.getCustomerLoginButton().click();\ncy.login('New Customer'); //Validate that Customers options appear\naccountPage.getTransactionsButton();\naccountPage.getDepositButton();\naccountPage.getWithdrawlButton();\naccountPage.getBalanceLabel().should('contain', '0');\naccountPage.getCurrencyLabel().should('contain', 'Dollar');",
+              "err": {},
+              "uuid": "3e8de5c0-79f5-450a-bf45-24f1f0b4c557",
+              "parentUUID": "bbd95935-7e31-4220-9edd-50928fe5b0d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "27fb353b-d9b9-4fd2-9187-a08ef7d023c2",
+            "4c650072-11c9-4aa1-b71e-2ab9de5481b5",
+            "c431a413-f753-4bba-aa0a-08b3084b8c65",
+            "ab5ac254-394a-44e8-91f7-2680f14fc770",
+            "3e8de5c0-79f5-450a-bf45-24f1f0b4c557"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19401,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-05-22T19:55:15.645Z",
+    "end": "2022-05-22T19:55:16.900Z",
+    "duration": 1255,
+    "testsRegistered": 5,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 4,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "b5224deb-5483-421d-a641-91acb9feb845",
+      "title": "",
+      "fullFile": "cypress/integration/1-getting-started/todo.spec.js",
+      "file": "cypress/integration/1-getting-started/todo.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+          "title": "algo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Send a blank message",
+              "fullTitle": "algo Send a blank message",
+              "timedOut": null,
+              "duration": 1161,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[id=\"contact-link\"]').click();\ncy.get('[id=\"submitMessage\"]').click();\ncy.get('[class=\"alert alert-danger\"]').should('contain', 'There are 3 errors').and('contain', 'The message cannot be blank.').and('contain', 'Please select a subject from the list provided.').and('contain', 'Invalid email address.');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://automationpractice.com/\n\nThe response we received from your web server was:\n\n  > 508: Loop Detected\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `algo`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://automationpractice.com/\n\nThe response we received from your web server was:\n\n  > 508: Loop Detected\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `algo`\n    at http://localhost:57249/__cypress/runner/cypress_runner.js:159302:84\n    at visitFailedByErr (http://localhost:57249/__cypress/runner/cypress_runner.js:158668:12)\n    at http://localhost:57249/__cypress/runner/cypress_runner.js:159282:13\n    at tryCatcher (http://localhost:57249/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:57249/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:57249/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:57249/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:57249/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (http://localhost:57249/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:57249/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:57249/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:57249/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:57249/__cypress/tests?p=cypress\\integration\\1-getting-started\\todo.spec.js:103:8)",
+                "diff": null
+              },
+              "uuid": "acbde258-f130-46d2-a980-ce0d2855c97a",
+              "parentUUID": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Send a Valid message/Check Fields and options",
+              "fullTitle": "algo Send a Valid message/Check Fields and options",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[id=\"contact-link\"]').click(); // title\ncy.get('[class=\"page-heading bottom-indent\"]').should('contain', 'Customer service - Contact us'); // subtitle\ncy.get('[class=\"page-subheading\"]').should('contain', 'send a message'); // Subject field\ncy.get('[id=\"id_contact\"]').select('Webmaster');\ncy.get('[id=\"id_contact\"]').select('Customer service'); //Email field\ncy.get('[id=\"email\"]').type('aa@aa.aaa'); // Order field\ncy.get('[id=\"id_order\"]').type('Ord123'); // Message\ncy.get('[id=\"message\"]').type('Message testing');\ncy.get('[id=\"submitMessage\"]').click();\ncy.get('[class=\"alert alert-danger\"]').should('not.exist');\ncy.get('[class=\"alert alert-success\"]').should('contain', 'Your message has been successfully sent to our team.');",
+              "err": {},
+              "uuid": "59f692fe-b62d-44a7-a448-f83c14e23579",
+              "parentUUID": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Validate email format",
+              "fullTitle": "algo Validate email format",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[id=\"contact-link\"]').click(); //Invalid values\ncy.get('[id=\"email\"]').type('aaa');\ncy.get('[id=\"id_order\"]').type('1'); //just to get the email validation\ncy.get('[class=\"form-group form-error\"]');\ncy.get('[id=\"email\"]').clear();\ncy.get('[id=\"email\"]').type('aaa@aaa');\ncy.get('[id=\"id_order\"]').type('2'); //just to get the email validation\ncy.get('[class=\"form-group form-error\"]');\ncy.get('[id=\"email\"]').clear();\ncy.get('[id=\"email\"]').type('aaa.aaa');\ncy.get('[id=\"id_order\"]').type('3'); //just to get the email validation\ncy.get('[class=\"form-group form-error\"]');\ncy.get('[id=\"email\"]').clear();\ncy.get('[id=\"email\"]').type('ss @ss.com');\ncy.get('[id=\"id_order\"]').type('4'); //just to get the email validation\ncy.get('[class=\"form-group form-error\"]');\ncy.get('[id=\"email\"]').clear(); //Valid values\ncy.get('[id=\"email\"]').type('a1@ss.cc');\ncy.get('[id=\"id_order\"]').type('5'); //just to get the email validation\ncy.get('[class=\"form-group form-ok\"]');\ncy.get('[id=\"email\"]').clear();\ncy.get('[id=\"email\"]').type('a1_a@ss.c');\ncy.get('[id=\"id_order\"]').type('5'); //just to get the email validation\ncy.get('[class=\"form-group form-ok\"]');\ncy.get('[id=\"email\"]').clear();",
+              "err": {},
+              "uuid": "b307f023-49de-41c8-8e82-1f940216fc6d",
+              "parentUUID": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Test maximum characters",
+              "fullTitle": "algo Test maximum characters",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[id=\"contact-link\"]').click();\nconst soManyCharacters = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestib'; // 2000 characters\n// Subject field\ncy.get('[id=\"id_contact\"]').select('Customer service'); //Email field\ncy.get('[id=\"email\"]').type('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'); // Order field\ncy.get('[id=\"id_order\"]').type(`${soManyCharacters}`); // Message\ncy.get('[id=\"message\"]').type(`${soManyCharacters}`);\ncy.get('[id=\"submitMessage\"]').click();\ncy.get('[class=\"alert alert-danger\"]');\ncy.get('[class=\"alert alert-success\"]').should('not.exist');",
+              "err": {},
+              "uuid": "5055c16e-2588-4315-bfe3-eb9d1a4d3da4",
+              "parentUUID": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Test specials characters",
+              "fullTitle": "algo Test specials characters",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[id=\"contact-link\"]').click();\nconst specialCharacters = '?.<>35@&^($%@$$&)@)$&@'; // 2000 characters\n// Subject field\ncy.get('[id=\"id_contact\"]').select('Customer service'); //Email field\ncy.get('[id=\"email\"]').type('aa_1aa@a5aa.a5aa'); // Order field\ncy.get('[id=\"id_order\"]').type(`${specialCharacters}`); // Message\ncy.get('[id=\"message\"]').type(`${specialCharacters}`);\ncy.get('[id=\"submitMessage\"]').click();\ncy.get('[class=\"alert alert-danger\"]').should('not.exist');\ncy.get('[class=\"alert alert-success\"]').should('contain', 'Your message has been successfully sent to our team.');",
+              "err": {},
+              "uuid": "448066fa-af96-4515-b1a4-63be48aa7699",
+              "parentUUID": "1f7af999-9dd2-4673-ad1a-509ebe536c69",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "acbde258-f130-46d2-a980-ce0d2855c97a"
+          ],
+          "pending": [],
+          "skipped": [
+            "59f692fe-b62d-44a7-a448-f83c14e23579",
+            "b307f023-49de-41c8-8e82-1f940216fc6d",
+            "5055c16e-2588-4315-bfe3-eb9d1a4d3da4",
+            "448066fa-af96-4515-b1a4-63be48aa7699"
+          ],
+          "duration": 1161,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
